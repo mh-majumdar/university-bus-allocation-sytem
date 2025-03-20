@@ -1,0 +1,56 @@
+.dashboard-header {
+    background-color: #343a40;
+    color: white;
+    padding: 20px 0;
+    margin-bottom: 30px;
+  }
+  .card {
+    margin-bottom: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  .card-header {
+    font-weight: 600;
+  }
+  .bus-icon {
+    font-size: 1.5rem;
+    margin-right: 10px;
+  }
+  .stat-card {
+    text-align: center;
+    padding: 15px;
+  }
+  .stat-number {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  .stat-label {
+    color: #6c757d;
+  }
+  .route-title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  .route-badge {
+    font-size: 0.9rem;
+    margin-left: 10px;
+  }
+  .full-capacity {
+    background-color: #dc3545 !important;
+  }
+  .high-capacity {
+    background-color: #fd7e14 !important;
+  }
+  .stoppage-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 8px;
+  }
+  .to-campus {
+    background-color: #198754;
+  }
+  .to-maijdee {
+    background-color: #0d6efd;
+  }

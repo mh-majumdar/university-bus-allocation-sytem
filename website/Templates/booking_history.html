@@ -1,0 +1,238 @@
+{% extends "base.html" %} {% block content %}
+
+<!-- templates/booking_history.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bus Booking History</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"
+    />
+    <style>
+      .booking-card {
+        transition: all 0.3s ease;
+      }
+      .booking-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+      .status-confirmed {
+        background-color: #d1e7dd;
+      }
+      .status-cancelled {
+        background-color: #f8d7da;
+      }
+      .status-completed {
+        background-color: #cff4fc;
+      }
+    </style>
+  </head>
+  <body class="bg-light">
+    <div class="container my-4">
+      <!-- Flash Messages -->
+      {% with messages = get_flashed_messages(with_categories=true) %} {% if
+      messages %} {% for category, message in messages %}
+      <div class="alert alert-{{ category }}">{{ message }}</div>
+      {% endfor %} {% endif %} {% endwith %}
+
+      <!-- Profile Information Card -->
+      <div class="card mb-4">
+        <div class="card-header bg-primary text-white">
+          <h4 class="mb-0">Student Profile</h4>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-4">
+              <p><strong>Student ID:</strong> {{ profile.student_id }}</p>
+              <p><strong>Faculty:</strong> {{ profile.faculty }}</p>
+              <p><strong>Department:</strong> {{ profile.department }}</p>
+            </div>
+            <div class="col-md-4">
+              <p><strong>Session:</strong> {{ profile.session }}</p>
+              <p><strong>First Name:</strong> {{ profile.fathers_name }}</p>
+              <p><strong>Last Name:</strong> {{ profile.mothers_name }}</p>
+            </div>
+            <div class="col-md-4">
+              <p><strong>Phone:</strong> {{ profile.phone }}</p>
+              <p>
+                <strong>Hall/Residence:</strong> {{ profile.hall_for_residence
+                }}
+              </p>
+              <p><strong>Year/Term:</strong> {{ profile.year_term }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Booking History Section -->
+      <h2 class="mb-3">Your Booking History To Campus</h2>
+
+      {% if bookings %}
+      <div class="row">
+        {% for booking in bookings %}
+        <div class="col-md-6 mb-3">
+          <div class="card booking-card status-{{ booking.status.lower() }}">
+            <div
+              class="card-header d-flex justify-content-between align-items-center"
+            >
+              <h5 class="mb-0">
+                {% if booking.status == 'Confirmed' %}
+                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                {% elif booking.status == 'Cancelled' %}
+                <i class="bi bi-x-circle-fill text-danger me-2"></i>
+                {% elif booking.status == 'Completed' %}
+                <i class="bi bi-flag-fill text-info me-2"></i>
+                {% endif %} Bus to {{ booking.destination }}
+              </h5>
+              <span
+                class="badge {% if booking.status == 'Confirmed' %}bg-success{% elif booking.status == 'Cancelled' %}bg-danger{% else %}bg-info{% endif %}"
+              >
+                {{ booking.status }}
+              </span>
+            </div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-7">
+                  <p>
+                    <i class="bi bi-clock me-2"></i
+                    ><strong>Departure:</strong> {{ booking.departure_time }}
+                  </p>
+                  <p>
+                    <i class="bi bi-calendar-event me-2"></i
+                    ><strong>Booked on:</strong> {{
+                    booking.booking_time.strftime('%b %d, %Y at %I:%M %p') }}
+                  </p>
+                </div>
+                <div class="col-5 text-end">
+                  {% if booking.can_cancel %}
+                  <form
+                    action="{{ url_for('views.cancel_booking', booking_id=booking.id) }}"
+                    method="POST"
+                  >
+                    <button
+                      type="submit"
+                      class="btn btn-danger"
+                      onclick="return confirm('Are you sure you want to cancel this booking?')"
+                    >
+                      <i class="bi bi-x-circle me-1"></i> Cancel
+                    </button>
+                  </form>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      {% else %}
+      <div class="alert alert-info">
+        <i class="bi bi-info-circle-fill me-2"></i> You don't have any bookings
+        yet.
+      </div>
+      <a href="#" class="btn btn-primary">
+        <i class="bi bi-plus-circle me-2"></i> Make a New Booking
+      </a>
+      {% endif %}
+    </div>
+
+    <div class="container my-4">
+      <!-- Flash Messages -->
+      {% with messages = get_flashed_messages(with_categories=true) %} {% if
+      messages %} {% for category, message in messages %}
+      <div class="alert alert-{{ category }}">{{ message }}</div>
+      {% endfor %} {% endif %} {% endwith %}
+
+
+   <!-- Booking History Section -->
+   <h2 class="mb-3">Your Booking History To Maijdee</h2>
+
+   {% if smaijdee_bookings %}
+   <div class="row">
+     {% for booking in maijdee_bookings %}
+     <div class="col-md-6 mb-3">
+       <div class="card booking-card status-{{ booking.status.lower() }}">
+         <div
+           class="card-header d-flex justify-content-between align-items-center"
+         >
+           <h5 class="mb-0">
+             {% if booking.status == 'Confirmed' %}
+             <i class="bi bi-check-circle-fill text-success me-2"></i>
+             {% elif booking.status == 'Cancelled' %}
+             <i class="bi bi-x-circle-fill text-danger me-2"></i>
+             {% elif booking.status == 'Completed' %}
+             <i class="bi bi-flag-fill text-info me-2"></i>
+             {% endif %} Bus to {{ booking.destination }}
+           </h5>
+           <span
+             class="badge {% if booking.status == 'Confirmed' %}bg-success{% elif booking.status == 'Cancelled' %}bg-danger{% else %}bg-info{% endif %}"
+           >
+             {{ booking.status }}
+           </span>
+         </div>
+         <div class="card-body">
+           <div class="row">
+             <div class="col-7">
+               <p>
+                 <i class="bi bi-clock me-2"></i
+                 ><strong>Departure:</strong> {{ booking.departure_time }}
+               </p>
+               <p>
+                 <i class="bi bi-calendar-event me-2"></i
+                 ><strong>Booked on:</strong> {{
+                 booking.booking_time.strftime('%b %d, %Y at %I:%M %p') }}
+               </p>
+             </div>
+             <div class="col-5 text-end">
+               {% if booking.can_cancel %}
+               <form
+                 action="{{ url_for('views.cancel_booking', booking_id=booking.id) }}"
+                 method="POST"
+               >
+                 <button
+                   type="submit"
+                   class="btn btn-danger"
+                   onclick="return confirm('Are you sure you want to cancel this booking?')"
+                 >
+                   <i class="bi bi-x-circle me-1"></i> Cancel
+                 </button>
+               </form>
+               {% endif %}
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+     {% endfor %}
+   </div>
+   {% else %}
+   <div class="alert alert-info">
+     <i class="bi bi-info-circle-fill me-2"></i> You don't have any bookings
+     yet.
+   </div>
+   <a href="#" class="btn btn-primary">
+     <i class="bi bi-plus-circle me-2"></i> Make a New Booking
+   </a>
+   {% endif %}
+ </div>
+
+ <div class="container my-4">
+   <!-- Flash Messages -->
+   {% with messages = get_flashed_messages(with_categories=true) %} {% if
+   messages %} {% for category, message in messages %}
+   <div class="alert alert-{{ category }}">{{ message }}</div>
+   {% endfor %} {% endif %} {% endwith %}
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
+
+{% endblock %}

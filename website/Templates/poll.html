@@ -1,0 +1,454 @@
+{%extends "base.html" %} {% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='poll.css') }}" />
+
+<div class="container">
+  <p class="text-center mb-4">
+    Welcome to the Transportation Services page. Here you'll find information
+    about our bus schedules, ambulance services, and the dedicated staff who
+    make it all possible. Click on each section to learn more.
+  </p>
+
+  <div class="accordion" id="transportAccordion">
+    <!-- Bus Schedule Section -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingOne">
+        <button
+          class="accordion-button"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseOne"
+          aria-expanded="true"
+          aria-controls="collapseOne"
+        >
+          <i class="fas fa-bus-alt"></i> Student Bus Schedule
+        </button>
+      </h2>
+      <div
+        id="collapseOne"
+        class="accordion-collapse collapse show"
+        aria-labelledby="headingOne"
+        data-bs-parent="#transportAccordion"
+      >
+        <div class="accordion-body">
+          <h3 class="section-title">Campus Bus Routes & Schedules</h3>
+          <p>
+            Our university provides regular bus services to ensure students and
+            staff can commute safely and conveniently. Below is the current
+            semester's schedule for all campus routes.
+          </p>
+
+          <div class="container">
+            <!-- Main Schedule Table -->
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <thead>
+                  <tr class="table-header">
+                    <th>ছাড়ার স্থান</th>
+                    <th>ছাড়ার সময়</th>
+                    <th>শেষের স্থান</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Row 1 -->
+                  <tr>
+                    <td rowspan="2">চৌরাস্তা</td>
+                    <td>সকাল ৭.৩০ মি</td>
+                    <td rowspan="2">ক্যাম্পাস</td>
+                  </tr>
+                  <tr>
+                    <td>সকাল ৮.৪৫ মি</td>
+                  </tr>
+
+                  <!-- Row 2 -->
+                  <tr>
+                    <td rowspan="3">মাইজদী বাজার</td>
+                    <td>সকাল ৮.০০ মি</td>
+                    <td rowspan="3">ক্যাম্পাস</td>
+                  </tr>
+                  <tr>
+                    <td>সকাল ৯.০০ মি</td>
+                  </tr>
+                  <tr>
+                    <td>সকাল ৯.৩০ মি</td>
+                  </tr>
+
+                  <!-- Row 3 -->
+                  <tr>
+                    <td rowspan="4">মাইজদী সুধারাম থানা</td>
+                    <td>দুপুর ১.৩০ মি</td>
+                    <td rowspan="4">ক্যাম্পাস</td>
+                  </tr>
+                  <tr>
+                    <td>বিকাল ৫.০০ মি</td>
+                  </tr>
+                  <tr>
+                    <td>সন্ধ্যা ৭.০০ মি</td>
+                  </tr>
+                  <tr>
+                    <td>রাত ৮.০০ মি</td>
+                  </tr>
+
+                  <!-- Row 4 -->
+                  <tr>
+                    <td rowspan="5">ক্যাম্পাস</td>
+                    <td>দুপুর ১২.৩০ মি</td>
+                    <td>মাইজদী সুধারাম থানা</td>
+                  </tr>
+                  <tr>
+                    <td>দুপুর ২.০০ মি</td>
+                    <td colspan="2">মাইজদী সুধারাম থানা</td>
+                  </tr>
+                  <tr>
+                    <td>দুপুর ২.১৫ মি</td>
+                    <td>চৌরাস্তা</td>
+                  </tr>
+                  <tr>
+                    <td>বিকাল ৫.০০ মি</td>
+                    <td>মাইজদী সুধারাম থানা</td>
+                  </tr>
+                  <tr>
+                    <td>সন্ধ্যা ৬.৩০ মি</td>
+                    <td>মাইজদী সুধারাম থানা</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <!-- Second Table (Maijdee to University) -->
+            <div class="section-title">স্টাফ ও শিক্ষার্থী (বাস)</div>
+            <div class="table-responsive">
+              <table class="table table-bordered">
+                <tbody>
+                  <!-- Row 1 -->
+                  <tr>
+                    <td>চৌরাস্তা</td>
+                    <td>সকাল ৭.৩০ মি</td>
+                    <td>ক্যাম্পাস</td>
+                  </tr>
+
+                  <!-- Row 2 -->
+                  <tr>
+                    <td>ক্যাম্পাস</td>
+                    <td>বিকাল ৩.১৫ মি</td>
+                    <td>চৌরাস্তা</td>
+                  </tr>
+
+                  <!-- Row 3 -->
+                  <tr>
+                    <td>বসুরহাট</td>
+                    <td>সকাল ৭.৩০ মি</td>
+                    <td>ক্যাম্পাস</td>
+                  </tr>
+
+                  <!-- Row 4 -->
+                  <tr>
+                    <td>ক্যাম্পাস</td>
+                    <td>বিকাল ৩.১৫ মি</td>
+                    <td>বসুরহাট</td>
+                  </tr>
+
+                  <!-- Row 5 -->
+                  <tr>
+                    <td>বসুরহাট</td>
+                    <td>সকাল ৭.৩০ মি</td>
+                    <td>ক্যাম্পাস</td>
+                  </tr>
+
+                  <!-- Row 6 -->
+                  <tr>
+                    <td>ক্যাম্পাস</td>
+                    <td>বিকাল ৩.১৫ মি</td>
+                    <td>বসুরহাট</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ambulance Service Section -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingTwo">
+        <button
+          class="accordion-button collapsed"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseTwo"
+          aria-expanded="false"
+          aria-controls="collapseTwo"
+        >
+          <i class="fas fa-ambulance"></i> Ambulance Service
+        </button>
+      </h2>
+      <div
+        id="collapseTwo"
+        class="accordion-collapse collapse"
+        aria-labelledby="headingTwo"
+        data-bs-parent="#transportAccordion"
+      >
+        <div class="accordion-body">
+          <h3 class="section-title">Emergency Medical Transportation</h3>
+          <p>
+            The university provides 24/7 ambulance services for emergency
+            medical transportation. Our ambulances are fully equipped with
+            modern medical equipment and staffed with trained medical
+            professionals.
+          </p>
+
+          <div class="emergency-notice">
+            <h4>
+              <i class="fas fa-exclamation-triangle"></i> Emergency Contact
+              Information
+            </h4>
+            <p>
+              In case of a medical emergency, call our campus ambulance number
+              immediately: <strong>+8801333199085, +8801776503469</strong>
+            </p>
+          </div>
+
+          <h4 class="mt-4">Ambulance Service Details:</h4>
+          <ul>
+            <li>24/7 availability, 365 days a year</li>
+            <li>
+              Average response time: under 5 minutes for on-campus emergencies
+            </li>
+            <li>
+              Direct transport to University Medical Center or other hospitals
+              as needed
+            </li>
+            <li>Equipped with Advanced Life Support (ALS) capabilities</li>
+            <li>
+              Staffed by certified Emergency Medical Technicians (EMTs) and
+              paramedics
+            </li>
+          </ul>
+
+          <div class="contact-info">
+            <h4>Medical Transportation Contacts</h4>
+            <div class="contact-item">
+              <i class="fas fa-phone"></i>
+              <span>Emergency: 555-EMERGENCY (555-363-7436)</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-phone-alt"></i>
+              <span>Non-emergency medical transport: 555-123-4567</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <span>medical.transport@university.edu</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <span>Location: Health Services Building, West Campus</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Transport Administration Section -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingThree">
+        <button
+          class="accordion-button collapsed"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseThree"
+          aria-expanded="false"
+          aria-controls="collapseThree"
+        >
+          <i class="fas fa-id-card"></i> Transport Administration Profile
+        </button>
+      </h2>
+      <div
+        id="collapseThree"
+        class="accordion-collapse collapse"
+        aria-labelledby="headingThree"
+        data-bs-parent="#transportAccordion"
+      >
+        <div class="accordion-body">
+          <h3 class="section-title">
+            Transportation Department Administration
+          </h3>
+
+          <div class="admin-info">
+            <div class="admin-head">
+              <h4>About Our Transportation Department</h4>
+            </div>
+            <p>
+              The University Transportation Department is responsible for
+              managing and operating all transportation services on campus,
+              including student buses, staff shuttles, emergency vehicles, and
+              special event transportation. Our department serves thousands of
+              students and staff daily, committed to providing safe, reliable,
+              and efficient transportation services.
+            </p>
+
+            <div class="row mt-4">
+              <div class="col-md-6">
+                <h5><i class="fas fa-bullseye me-2"></i>Our Mission</h5>
+                <p>
+                  To provide safe, reliable, and sustainable transportation
+                  solutions that enhance mobility and accessibility for the
+                  entire university community.
+                </p>
+              </div>
+              <div class="col-md-6">
+                <h5><i class="fas fa-eye me-2"></i>Our Vision</h5>
+                <p>
+                  To be a leader in innovative campus transportation services,
+                  setting the standard for collegiate transportation systems
+                  nationwide.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <h4 class="mt-4 mb-3">Department Leadership</h4>
+          <div class="row">
+            <div class="col-md-6 mb-4">
+              <div class="card h-100">
+                <div class="card-header bg-primary text-white">
+                  <h5 class="mb-0">Dr. Kawsar Hossen</h5>
+
+                  <p class="mb-0">Trasnport Administration</p>
+                </div>
+                <div class="card-body">
+                  <p><strong>Responsibilities:</strong></p>
+                  <ul>
+                    <li>Overall management of transportation services</li>
+                    <li>Strategic planning and policy development</li>
+                    <li>Budget administration and resource allocation</li>
+                    <li>Interdepartmental coordination</li>
+                  </ul>
+                  <p>
+                    <strong>Contact:</strong> kawsar.ag@nstu.edu.bd |
+                    +8801710395738
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 mb-4">
+              <div class="card h-100">
+                <div class="card-header bg-primary text-white">
+                  <h5 class="mb-0">Jamal Hossen</h5>
+                  <p class="mb-0">Foreman</p>
+                </div>
+                <div class="card-body">
+                  <p><strong>Responsibilities:</strong></p>
+                  <ul>
+                    <li>Day-to-day operations management</li>
+                    <li>Fleet maintenance oversight</li>
+                    <li>Staff supervision and scheduling</li>
+                    <li>Quality assurance and safety compliance</li>
+                    <li>Coordination with university authorities</li>
+                  </ul>
+                  <p><strong>Contact:</strong> +8801819505957</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-info mt-4">
+            <h4>Department Contact Information</h4>
+            <div class="contact-item">
+              <i class="fas fa-building"></i>
+              <span>Transportation Services Building, East Campus</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-phone-alt"></i>
+              <span>Main Office: 555-987-6540</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <span>transportation@university.edu</span>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-clock"></i>
+              <span>Office Hours: Monday-Friday, 8:00 AM - 5:00 PM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Drivers Profile Section -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingFour">
+        <button
+          class="accordion-button collapsed"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseFour"
+          aria-expanded="false"
+          aria-controls="collapseFour"
+        >
+          <i class="fas fa-user-tie"></i> Drivers Profile
+        </button>
+      </h2>
+      <div
+        id="collapseFour"
+        class="accordion-collapse collapse"
+        aria-labelledby="headingFour"
+        data-bs-parent="#transportAccordion"
+      >
+        <div class="accordion-body">
+          <h3 class="section-title">Our Professional Drivers</h3>
+          <p>
+            Our university transportation services employ a team of
+            professional, experienced, and dedicated drivers who ensure the
+            safety and comfort of our passengers. All our drivers are licensed
+            professionals with extensive training in passenger safety, defensive
+            driving, and emergency procedures.
+          </p>
+
+          <div class="row mb-4">
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-header bg-primary text-white">
+                  <h5 class="mb-0">Driver Qualifications & Training</h5>
+                </div>
+                <div class="card-body">
+                  <ul>
+                    <li>
+                      Commercial Driver's License (CDL) with passenger
+                      endorsement
+                    </li>
+                    <li>Minimum 3 years of professional driving experience</li>
+                    <li>Clean driving record</li>
+                    <li>Defensive driving certification</li>
+                    <li>First aid and CPR certification</li>
+                    <li>Annual safety training and performance evaluations</li>
+                    <li>Drug and alcohol screening</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card">
+                <div class="card-header bg-primary text-white">
+                  <h5 class="mb-0">Driver Responsibilities</h5>
+                </div>
+                <div class="card-body">
+                  <ul>
+                    <li>Ensure passenger safety at all times</li>
+                    <li>Maintain and follow designated routes and schedules</li>
+                    <li>Conduct pre-trip and post-trip vehicle inspections</li>
+                    <li>Report maintenance issues promptly</li>
+                    <li>Assist passengers with special needs</li>
+                    <li>Provide information and assistance to passengers</li>
+                    <li>Maintain a professional demeanor and appearance</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{%endblock%}

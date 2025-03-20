@@ -1,0 +1,69 @@
+{% extends "base.html" %} {% block content %}
+<div class="container py-5">
+  <div class="card shadow-lg border-0">
+    <div class="card-header bg-success text-white">
+      <h3 class="mb-0">
+        <i class="fas fa-check-circle me-2"></i>Booking Confirmed
+      </h3>
+    </div>
+    <div class="card-body p-4">
+      <div class="text-center mb-4">
+        <div class="display-1 text-success mb-3">
+          <i class="fas fa-ticket-alt"></i>
+        </div>
+        <h4>Your campus bus booking has been confirmed!</h4>
+        <p class="text-muted">Booking ID: {{ booking.id }}</p>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <div class="card h-100 border-0 bg-light">
+            <div class="card-body">
+              <h5 class="card-title">
+                <i class="fas fa-clock text-primary me-2"></i>Departure Details
+              </h5>
+              <p class="card-text">
+                <strong>Time:</strong> {{ booking.departure_time }}<br />
+                <strong>Date:</strong> {{ booking.booking_time.strftime('%B %d,
+                %Y') }}<br />
+                <strong>Booking Made:</strong> {{
+                booking.booking_time.strftime('%I:%M %p') }}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <div class="card h-100 border-0 bg-light">
+            <div class="card-body">
+              <h5 class="card-title">
+                <i class="fas fa-map-marker-alt text-primary me-2"></i>Departure
+                Details
+              </h5>
+              <p class="card-text">
+                <strong>From:</strong> Campus <br />
+                <strong>To:</strong> {{ booking.destination }}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="alert alert-info mt-4">
+        <i class="fas fa-info-circle me-2"></i>
+        Please arrive at the bus stop at least 10 minutes before the scheduled
+        departure time.
+      </div>
+
+      <div class="d-grid gap-2 d-md-flex justify-content-md-center mt-4">
+        <a href="{{ url_for('views.to_maijdee') }}" class="btn btn-primary">
+          <i class="fas fa-plus-circle me-2"></i>Make Another Booking
+        </a>
+        <a href="{{ url_for('views.home') }}" class="btn btn-outline-primary">
+          <i class="fas fa-home me-2"></i>Return to Dashboard
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
