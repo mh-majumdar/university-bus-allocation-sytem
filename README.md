@@ -67,8 +67,6 @@ NSTU-Transit/
 ├── requirements.txt         # Python dependencies
 └── README.md
 
-## 🏗️ Home Page
 
-![Home](https://github.com/user-attachments/assets/80a55427-ed01-4888-ac39-aed6ec74e4f4)
 
 
