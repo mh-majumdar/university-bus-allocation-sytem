@@ -68,6 +68,7 @@ NSTU-Transit/
 └── README.md
 
 ## 🏗️ Home Page
-![Home](https://github.com/user-attachments/assets/0a46f3cd-8362-4bf4-a4af-25f5d17f535e)
+
+![Home](https://github.com/user-attachments/assets/80a55427-ed01-4888-ac39-aed6ec74e4f4)
 
 
