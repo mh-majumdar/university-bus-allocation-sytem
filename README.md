@@ -24,8 +24,6 @@
 
 ---
 
-## 📁 Project Structure
-
 ## 🏗️ Project Architecture
 
 ```text
@@ -51,12 +49,22 @@
                     └──────────────────┘
 
 ---
+## 🏗️ Folder Architecture
+NSTU-Transit/
+├── website/
+│   ├── __init__.py          # App configuration
+│   ├── auth.py              # Login, register, logout routes
+│   ├── views.py             # Main app views
+│   ├── models.py            # Database models
+│   ├── static/              # CSS, JS, assets
+│   └── templates/           # HTML (Jinja2 templates)
+│       ├── base.html
+│       ├── login.html
+│       ├── register.html
+│       ├── dashboard.html
+│       └── ...
+├── main.py                  # Entry point
+├── requirements.txt         # Python dependencies
+└── README.md
 
-## ⚙️ Installation
-
-1. **Clone the repository**
-
-```bash
-git clone https://github.com/yourusername/nstu-transit.git
-cd nstu-transit
 
