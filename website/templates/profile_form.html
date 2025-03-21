@@ -1,0 +1,239 @@
+{% extends "base.html" %}
+
+{% block title %}User Profile Form{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{{ url_for('static', filename='profile_form.css') }}" />
+<div class="container mt-4">
+    <h1 class="mb-4">Student Profile Information</h1>
+    
+    <form action="{{ url_for('views.user_info') }}" method="POST">
+        <div class="card mb-4">
+            <div class="card-header bg-primary text-white">
+                <h4>Personal Information</h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="fathers_name" class="form-label">First Name</label>
+                        <input type="text" class="form-control" id="fathers_name" name="fathers_name" value="{{ profile.fathers_name or '' }}">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="mothers_name" class="form-label">Last Name</label>
+                        <input type="text" class="form-control" id="mothers_name" name="mothers_name" value="{{ profile.mothers_name or '' }}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="date_of_birth" class="form-label">Date of Birth</label>
+                        <input type="text" class="form-control" id="date_of_birth" name="date_of_birth" placeholder="DD-MM-YYYY" value="{{ profile.date_of_birth or '' }}">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="phone" class="form-label">Phone</label>
+                        <input type="text" class="form-control" id="phone" name="phone" value="{{ profile.phone or '' }}">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="nid_number" class="form-label">NID Number</label>
+                        <input type="text" class="form-control" id="nid_number" name="nid_number" value="{{ profile.nid_number or '' }}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="guardians_name" class="form-label">Guardian's Name</label>
+                        <input type="text" class="form-control" id="guardians_name" name="guardians_name" value="{{ profile.guardians_name or '' }}">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="guardians_phone" class="form-label">Guardian's Phone</label>
+                        <input type="text" class="form-control" id="guardians_phone" name="guardians_phone" value="{{ profile.guardians_phone or '' }}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="hall_for_residence" class="form-label">Hall for Residence</label>
+                        <input type="text" class="form-control" id="hall_for_residence" name="hall_for_residence" value="{{ profile.hall_for_residence or '' }}">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="hall_for_roll" class="form-label">Hall for Roll</label>
+                        <input type="text" class="form-control" id="hall_for_roll" name="hall_for_roll" value="{{ profile.hall_for_roll or '' }}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <label for="blood_group" class="form-label">Blood Group</label>
+                        <select class="form-select" id="blood_group" name="blood_group">
+                            <option value="" {% if not profile.blood_group %}selected{% endif %}>Select</option>
+                            <option value="A+" {% if profile.blood_group == 'A+' %}selected{% endif %}>A+</option>
+                            <option value="A-" {% if profile.blood_group == 'A-' %}selected{% endif %}>A-</option>
+                            <option value="B+" {% if profile.blood_group == 'B+' %}selected{% endif %}>B+</option>
+                            <option value="B-" {% if profile.blood_group == 'B-' %}selected{% endif %}>B-</option>
+                            <option value="AB+" {% if profile.blood_group == 'AB+' %}selected{% endif %}>AB+</option>
+                            <option value="AB-" {% if profile.blood_group == 'AB-' %}selected{% endif %}>AB-</option>
+                            <option value="O+" {% if profile.blood_group == 'O+' %}selected{% endif %}>O+</option>
+                            <option value="O-" {% if profile.blood_group == 'O-' %}selected{% endif %}>O-</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="religion" class="form-label">Religion</label>
+                        <input type="text" class="form-control" id="religion" name="religion" value="{{ profile.religion or '' }}">
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="nationality" class="form-label">Nationality</label>
+                        <input type="text" class="form-control" id="nationality" name="nationality" value="{{ profile.nationality or '' }}">
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="gender" class="form-label">Gender</label>
+                        <select class="form-select" id="gender" name="gender">
+                            <option value="" {% if not profile.gender %}selected{% endif %}>Select</option>
+                            <option value="Male" {% if profile.gender == 'Male' %}selected{% endif %}>Male</option>
+                            <option value="Female" {% if profile.gender == 'Female' %}selected{% endif %}>Female</option>
+                            <option value="Other" {% if profile.gender == 'Other' %}selected{% endif %}>Other</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="marital_status" class="form-label">Marital Status</label>
+                        <select class="form-select" id="marital_status" name="marital_status">
+                            <option value="" {% if not profile.marital_status %}selected{% endif %}>Select</option>
+                            <option value="Unmarried" {% if profile.marital_status == 'Unmarried' %}selected{% endif %}>Unmarried</option>
+                            <option value="Married" {% if profile.marital_status == 'Married' %}selected{% endif %}>Married</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-header bg-primary text-white">
+                <h4>Present Address</h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="present_division" class="form-label">Division</label>
+                        <input type="text" class="form-control" id="present_division" name="present_division" value="{{ profile.present_division or '' }}">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="present_district" class="form-label">District</label>
+                        <input type="text" class="form-control" id="present_district" name="present_district" value="{{ profile.present_district or '' }}">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="present_upazilla" class="form-label">Upazilla</label>
+                        <input type="text" class="form-control" id="present_upazilla" name="present_upazilla" value="{{ profile.present_upazilla or '' }}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="present_post_office" class="form-label">Post Office</label>
+                        <input type="text" class="form-control" id="present_post_office" name="present_post_office" value="{{ profile.present_post_office or '' }}">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="present_village" class="form-label">Village</label>
+                        <input type="text" class="form-control" id="present_village" name="present_village" value="{{ profile.present_village or '' }}">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="present_house_name" class="form-label">House Name</label>
+                        <input type="text" class="form-control" id="present_house_name" name="present_house_name" value="{{ profile.present_house_name or '' }}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="present_house_no" class="form-label">House No</label>
+                        <input type="text" class="form-control" id="present_house_no" name="present_house_no" value="{{ profile.present_house_no or '' }}">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="present_road_no" class="form-label">Road No</label>
+                        <input type="text" class="form-control" id="present_road_no" name="present_road_no" value="{{ profile.present_road_no or '' }}">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-header bg-primary text-white">
+                <h4>Permanent Address</h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="permanent_division" class="form-label">Division</label>
+                        <input type="text" class="form-control" id="permanent_division" name="permanent_division" value="{{ profile.permanent_division or '' }}">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="permanent_district" class="form-label">District</label>
+                        <input type="text" class="form-control" id="permanent_district" name="permanent_district" value="{{ profile.permanent_district or '' }}">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="permanent_upazilla" class="form-label">Upazilla</label>
+                        <input type="text" class="form-control" id="permanent_upazilla" name="permanent_upazilla" value="{{ profile.permanent_upazilla or '' }}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="permanent_post_office" class="form-label">Post Office</label>
+                        <input type="text" class="form-control" id="permanent_post_office" name="permanent_post_office" value="{{ profile.permanent_post_office or '' }}">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="permanent_village" class="form-label">Village</label>
+                        <input type="text" class="form-control" id="permanent_village" name="permanent_village" value="{{ profile.permanent_village or '' }}">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="permanent_house_name" class="form-label">House Name</label>
+                        <input type="text" class="form-control" id="permanent_house_name" name="permanent_house_name" value="{{ profile.permanent_house_name or '' }}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="permanent_house_no" class="form-label">House No</label>
+                        <input type="text" class="form-control" id="permanent_house_no" name="permanent_house_no" value="{{ profile.permanent_house_no or '' }}">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="permanent_road_no" class="form-label">Road No</label>
+                        <input type="text" class="form-control" id="permanent_road_no" name="permanent_road_no" value="{{ profile.permanent_road_no or '' }}">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-header bg-primary text-white">
+                <h4>Academic Information</h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="academic_level" class="form-label">Level</label>
+                        <input type="text" class="form-control" id="academic_level" name="academic_level" value="{{ profile.academic_level or '' }}">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="faculty" class="form-label">Faculty</label>
+                        <input type="text" class="form-control" id="faculty" name="faculty" value="{{ profile.faculty or '' }}">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="department" class="form-label">Department</label>
+                        <input type="text" class="form-control" id="department" name="department" value="{{ profile.department or '' }}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="session" class="form-label">Session</label>
+                        <input type="text" class="form-control" id="session" name="session" value="{{ profile.session or '' }}">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="year_term" class="form-label">Year, Term</label>
+                        <input type="text" class="form-control" id="year_term" name="year_term" value="{{ profile.year_term or '' }}">
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="student_id" class="form-label">Student ID</label>
+                        <input type="text" class="form-control" id="student_id" name="student_id" value="{{ profile.student_id or '' }}">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-4">
+            <button type="submit" class="btn btn-primary">Save Profile Information</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

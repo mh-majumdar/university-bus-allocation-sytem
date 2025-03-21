@@ -1,0 +1,138 @@
+{% extends "base.html" %} {% block content %}
+<!-- Banner Section -->
+<link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}" />
+
+<div class="banner container">
+  <div class="row align-items-center">
+    <!-- Article Section -->
+    <article class="article col-12 col-md-5 text-start">
+      <p2 class="title">Connecting Students, Simplifying Travel</p2>
+      <p class="description">
+        NSTU Transit is designed to make commuting easy and efficient for all
+        students at Noakhali Science and Technology University. With a focus on
+        accessibility and reliability, our bus allocation system ensures that
+        every student has a comfortable and timely journey to and from campus.
+        By streamlining the process of bus scheduling, tracking, and seat
+        allocation. Whether it's daily commuting or special transport needs,
+        NSTU Transit is committed to keeping the university community connected.
+      </p>
+    </article>
+
+    <!-- Image Section -->
+    <aside class="col-12 col-md-6">
+      <img
+        class="banner-photo"
+        src="{{ url_for('static', filename='Images/nstu-bus.jpeg') }}"
+        alt="Bus Image"
+      />
+    </aside>
+  </div>
+</div>
+
+<!-- Keynotes Section -->
+<div class="container my-4">
+  <div class="header-banner">
+    <h2 class="mb-0">Features of the NSTU Transit</h2>
+  </div>
+
+  <div class="features-container">
+    <div class="row g-4">
+      <!-- Campus Commute Card -->
+      <div class="col-md-4">
+        <div class="feature-card">
+          <h3 class="feature-title">Campus Commute</h3>
+          <p class="feature-text">
+            In this section, students can book their seat by filling up the
+            route time of going to the university. Each student can submit only
+            one response for the journey. Please note, the response will be
+            accepted only within a specific time frame, ensuring accurate seat
+            reservations for everyone.
+          </p>
+          <div class="text-center">
+            <button class="action-button">LEARN MORE</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Maijdee Commute Card -->
+      <div class="col-md-4">
+        <div class="feature-card">
+          <h3 class="feature-title">Maijdee Commute</h3>
+          <p class="feature-text">
+            This section allows students to book their seat for the route from
+            campus to Maijdee. Similar to the previous section, students can
+            fill in their desired route time and submit only one response. The
+            submission will be accepted within a given time window to ensure
+            proper scheduling.
+          </p>
+          <div class="text-center">
+            <button class="action-button">LEARN MORE</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bus Allocation Card -->
+      <div class="col-md-4">
+        <div class="feature-card">
+          <h3 class="feature-title">Bus Allocation</h3>
+          <p class="feature-text">
+            In this section, real-time statistics about bus demand for each
+            route time are displayed. It shows the number of students per stop
+            and the need for additional buses at each PM stop. This data helps
+            in optimizing bus schedules to meet the student demand efficiently.
+          </p>
+          <div class="text-center">
+            <button class="action-button">LEARN MORE</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Features Section -->
+<section class="mb-5">
+  <h2 class="text-center mb-4">Why Book Your Campus Seat Online?</h2>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card feature-card h-100">
+        <div class="card-body text-center p-4">
+          <i class="fas fa-clock feature-icon"></i>
+          <h4>Save Time</h4>
+          <p>
+            No more waiting in lines. Book your preferred seat in advance and
+            head straight to studying.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card feature-card h-100">
+        <div class="card-body text-center p-4">
+          <i class="fas fa-map-pin feature-icon"></i>
+          <h4>Guaranteed Spot</h4>
+          <p>
+            Secure your favorite location, especially during busy exam periods
+            and peak hours.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card feature-card h-100">
+        <div class="card-body text-center p-4">
+          <i class="fas fa-mobile-alt feature-icon"></i>
+          <h4>Mobile Friendly</h4>
+          <p>
+            Book, modify, or cancel your reservation anytime, anywhere from your
+            mobile device.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+{% endblock %}
