@@ -47,6 +47,7 @@
                     │     Database     │
                     │     SQLite       │
                     └──────────────────┘
+---
 
 ## 🏗️ Folder Architecture
 NSTU-Transit/
@@ -65,6 +66,7 @@ NSTU-Transit/
 ├── main.py                  # Entry point
 ├── requirements.txt         # Python dependencies
 └── README.md
+---
 
 ## ⚙️ Installation
 
