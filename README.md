@@ -49,7 +49,7 @@
                     └──────────────────┘
 ---
 
-NSTU-Transit/
+## NSTU-Transit/
 ├── website/
 │   ├── __init__.py          # App configuration
 │   ├── auth.py              # Login, register, logout routes
