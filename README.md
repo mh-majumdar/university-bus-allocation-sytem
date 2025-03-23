@@ -49,7 +49,6 @@
                     └──────────────────┘
 ---
 
-## 🏗️ Project Architecture
 NSTU-Transit/
 ├── website/
 │   ├── __init__.py          # App configuration
@@ -66,6 +65,7 @@ NSTU-Transit/
 ├── main.py                  # Entry point
 ├── requirements.txt         # Python dependencies
 └── README.md
+
 ---
 
 ## ⚙️ Installation
