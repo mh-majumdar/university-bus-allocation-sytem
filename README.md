@@ -49,7 +49,7 @@
                     └──────────────────┘
 ---
 
-## 🏗️ Folder Architecture
+## 🏗️ Project Architecture
 NSTU-Transit/
 ├── website/
 │   ├── __init__.py          # App configuration
