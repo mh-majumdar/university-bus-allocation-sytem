@@ -67,6 +67,30 @@ NSTU-Transit/
 ├── requirements.txt         # Python dependencies
 └── README.md
 
+## ⚙️ Installation
+
+1. Clone the repository
+
+git clone https://github.com/your-username/bus-management-system.git  
+cd bus-management-system
+
+2. Create a virtual environment
+
+python -m venv venv  
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+3. Install dependencies
+
+pip install -r requirements.txt
+
+4. Run the application
+
+python app.py
+
+5. Visit the app
+
+Open your browser and go to http://127.0.0.1:5000/
+
 
 
 
